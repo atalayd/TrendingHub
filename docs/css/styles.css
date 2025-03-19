@@ -65,6 +65,17 @@ body {
     text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
 }
 
+.logo a {
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+    transition: all 0.3s ease;
+}
+
+.logo a:hover {
+    color: rgba(0, 255, 0, 0.8);
+}
+
 .region-filters {
     display: flex;
     gap: 10px;
