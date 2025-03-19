@@ -116,7 +116,7 @@ body {
 }
 
 /* ===== YOUTUBE WINDOW ===== */
-/* Larger YouTube window at the top with video preview capability */
+/* Adjusted YouTube window to be smaller and aligned left */
 .youtube-window {
     background-color: rgba(0, 100, 0, 0.3);
     border: 1px solid rgba(0, 255, 0, 0.3);
@@ -124,8 +124,13 @@ body {
     padding: 15px;
     backdrop-filter: blur(10px);
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+    width: 65%;
+    /* Reduce the width to 50% */
+    margin-right: auto;
+    /* Push it to the left */
 }
 
+/* Labels styling */
 .platform-label {
     font-size: 18px;
     font-weight: 500;
@@ -133,25 +138,32 @@ body {
     color: rgba(0, 255, 0, 0.8);
 }
 
+/* Updated container to align content properly */
 .youtube-content {
     display: flex;
     gap: 20px;
     height: 300px;
+    /* Reduce height to match the new size */
 }
 
+/* Updated YouTube preview section */
 .youtube-preview {
     flex: 1;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     overflow: hidden;
+    width: 100%;
+    height: 100%;
 }
 
+/* Adjusting the YouTube player */
 #youtube-player {
     width: 100%;
     height: 100%;
     border: none;
 }
 
+/* Updated YouTube list section */
 .youtube-list {
     flex: 1;
     overflow-y: auto;
@@ -179,27 +191,56 @@ body {
 
 /* ===== PLATFORM WINDOWS ===== */
 /* Four equal-sized windows below for Google, Twitter, Facebook, and TikTok */
+/* ===== PLATFORM WINDOWS ===== */
+/* Arrange platform windows in a horizontal row */
+
+
 .platform-windows {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    /* Uses flexbox to arrange containers in a row */
+    flex-wrap: wrap;
+    /* Allows wrapping if the screen is too small */
     gap: 20px;
+    /* Controls the space between each container */
+    justify-content: flex-start;
+    /* Aligns the containers to the left */
+
+    margin-left: -140px;
+    /* Moves all containers 20px further to the left. 
+       Increase the negative value (-30px, -40px, etc.) to push it even more to the left.
+       Use positive values (20px, 30px, etc.) to move it to the right. */
 }
 
+/* Styles for individual containers */
 .platform-window {
-    background-color: rgba(0, 100, 0, 0.3);
-    border: 1px solid rgba(0, 255, 0, 0.3);
-    border-radius: 15px;
-    padding: 15px;
+    width: 20%;
+    /* Sets the width of each container to 20% of the parent container */
     height: 300px;
+    /* Fixed height for each container */
+    background-color: rgba(0, 100, 0, 0.3);
+    /* Semi-transparent green background */
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    /* Light green border */
+    border-radius: 15px;
+    /* Rounded corners */
+    padding: 10px;
+    /* Space inside each container */
     backdrop-filter: blur(10px);
+    /* Adds a subtle background blur */
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+    /* Adds a glowing green shadow */
 }
 
+
+/* Adjust trending list width accordingly */
 .trending-list {
+    width: 100%;
+    /* Ensure content scales with the new width */
     height: calc(100% - 30px);
     overflow-y: auto;
     padding-right: 10px;
 }
+
 
 /* ===== TRENDING ITEMS ===== */
 /* Styling for individual trending items in all platforms */
@@ -351,11 +392,6 @@ body {
 .asia-card {
     top: 40%;
     left: 70%;
-}
-
-.africa-card {
-    top: 55%;
-    left: 52%;
 }
 
 .country-card:hover {

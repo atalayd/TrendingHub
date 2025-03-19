@@ -19,7 +19,7 @@ const closeModal = document.querySelector('.close-modal');
 // Function to fetch trending data from YouTube Data API
 async function fetchYouTubeTrending(region = 'global') {
   // Replace 'YOUR_YOUTUBE_API_KEY' with your actual key.
-  const apiKey = 'YOUR_YOUTUBE_API_KEY';
+  const apiKey = 'AIzaSyAJqRA9paFf5Te2sPyQ537lWujyTWPmeYw';
   // Example URL for trending videos (region code may vary based on your filter)
   const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&chart=mostPopular&regionCode=${getRegionCode(region)}&maxResults=5&key=${apiKey}`;
   try {
@@ -82,9 +82,7 @@ function getRegionCode(region) {
     global: 'US', // default to US or another popular region
     americas: 'US',
     europe: 'GB',
-    asia: 'JP',
-    africa: 'ZA',
-    oceania: 'AU'
+    asia: 'JP'
   };
   return mapping[region] || 'US';
 }
