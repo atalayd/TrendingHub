@@ -1,6 +1,6 @@
 # Trending Hub
 
-![Trending Hub Screenshot](https://imgur.com/a/trendinghub-mYa2xi6)
+![Trending Hub Screenshot](https://raw.githubusercontent.com/atalayd/TrendingHub/main/docs/images/Screenshot.png)
 
 ## Overview
 
