@@ -24,11 +24,13 @@ A live demo of the Trending Hub is available at: [Demo Link](http://placeholder-
 ## Installation
 
 1. Clone the repository:
+
    ```
    git clone https://github.com/yourusername/trending-hub.git
    ```
 
 2. Navigate to the project directory:
+
    ```
    cd trending-hub
    ```
@@ -55,12 +57,15 @@ trending_hub/
 ## Usage
 
 ### Region Filtering
+
 Click on any region button (Global, Americas, Europe, Asia, Africa, Oceania) to filter content by geographic region.
 
 ### Platform Filtering
+
 Click on any platform button (All, YouTube, Twitter/X, Facebook, TikTok) to filter content by platform.
 
 ### Content Interaction
+
 - **YouTube Videos**: Click on a YouTube trending item to play the video in the preview area
 - **Platform Content**: Click on trending items from other platforms to open content in popup windows
 - **Country Cards**: Click on video cards positioned on the globe to view region-specific content
@@ -68,18 +73,21 @@ Click on any platform button (All, YouTube, Twitter/X, Facebook, TikTok) to filt
 ## Customization
 
 ### Changing the Video Background
+
 1. Replace the video file in the `assets` folder
 2. Update the source URL in `index.html`:
    ```html
    <video autoplay muted loop id="globe-video">
-       <source src="assets/your-new-video.mp4" type="video/mp4">
+     <source src="assets/your-new-video.mp4" type="video/mp4" />
    </video>
    ```
 
 ### Updating Trending Content
+
 Modify the sample trending data in `js/data.js` to update content for each platform and region.
 
 ### Customizing the Appearance
+
 Edit `css/styles.css` to modify the visual style of the website. Key sections are clearly commented for easy navigation.
 
 ## API Integration
@@ -113,10 +121,10 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - [Font Awesome](https://fontawesome.com/) for icons
 - [YouTube Embed API](https://developers.google.com/youtube/iframe_api_reference) for video embedding
-- [GitHub](https://github.com/atalayd/TrendingHub) for hosting the spinning globe video
+- [GitHub](https://github.com/atalayd/TrendingHub) for hosting the website
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_twitter) - email@example.com
+Atalay Durdu - [@LinkedIn](https://www.linkedin.com/in/atalay-durdu/) - email@example.com
 
-Project Link: [https://github.com/yourusername/trending-hub](https://github.com/yourusername/trending-hub)
+Project Link: [TrendingHub](https://github.com/atalayd/TrendingHub)
