@@ -125,6 +125,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-Atalay Durdu - [@LinkedIn](https://www.linkedin.com/in/atalay-durdu/) - email@example.com
+Atalay Durdu - [@LinkedIn](https://www.linkedin.com/in/atalay-durdu/) - atalaydurdu@gmail.com
 
 Project Link: [TrendingHub](https://github.com/atalayd/TrendingHub)
