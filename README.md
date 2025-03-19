@@ -1,6 +1,6 @@
 # Trending Hub
 
-![Trending Hub Screenshot](https://i.imgur.com/placeholder-image.jpg)
+![Trending Hub Screenshot](https://imgur.com/a/trendinghub-mYa2xi6)
 
 ## Overview
 
@@ -19,7 +19,7 @@ Trending Hub is a modern, interactive website that aggregates trending content f
 
 ## Demo
 
-A live demo of the Trending Hub is available at: [Demo Link](http://placeholder-demo-link.com)
+A live demo of the Trending Hub is available at: [Demo Link](https://atalayd.github.io/TrendingHub/)
 
 ## Installation
 
