@@ -10,7 +10,7 @@ Trending Hub is a modern, interactive website that aggregates trending content f
 
 - **Spinning Globe Background**: Full-screen spinning globe video that remains visible behind all content
 - **Multi-Platform Integration**: Displays trending content from YouTube, Twitter/X, Facebook, TikTok, and Google
-- **Region-Based Filtering**: Filter content by Global, Americas, Europe, Asia, Africa, and Oceania regions
+- **Region-Based Filtering**: Filter content by Global, Americas, Europe, Asia regions
 - **Platform-Based Filtering**: Filter content by specific platforms or view all simultaneously
 - **Interactive Video Cards**: Hover effects and clickable content with preview functionality
 - **Country-Specific Content**: Small video cards positioned on major regions of the globe
@@ -58,7 +58,7 @@ trending_hub/
 
 ### Region Filtering
 
-Click on any region button (Global, Americas, Europe, Asia, Africa, Oceania) to filter content by geographic region.
+Click on any region button (Global, Americas, Europe, Asia) to filter content by geographic region.
 
 ### Platform Filtering
 
