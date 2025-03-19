@@ -17,6 +17,8 @@ body {
     overflow-x: hidden;
     position: relative;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* ===== VIDEO BACKGROUND ===== */
@@ -107,6 +109,7 @@ body {
 .content-container {
     padding: 20px;
     display: flex;
+    flex: 1;
     flex-direction: column;
     gap: 20px;
     max-width: 1400px;
@@ -116,7 +119,9 @@ body {
 }
 
 /* ===== YOUTUBE WINDOW ===== */
-/* Adjusted YouTube window to be smaller and aligned left */
+/* Adjusted YouTube window to be responsive and aligned left */
+
+
 .youtube-window {
     background-color: rgba(0, 100, 0, 0.3);
     border: 1px solid rgba(0, 255, 0, 0.3);
@@ -124,10 +129,23 @@ body {
     padding: 15px;
     backdrop-filter: blur(10px);
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
-    width: 65%;
-    /* Reduce the width to 50% */
+
+    width: 600%;
+    /* Controls the width of the YouTube window.
+       - Increase (e.g., 65%) to make it bigger.
+       - Decrease (e.g., 40%) to make it smaller. */
+
+    max-width: 900px;
+    /* Prevents the container from becoming too wide on large screens.
+       Adjust as needed (e.g., 700px or 500px). */
+
+    margin-left: 5vw;
+    /* Pushes the YouTube window slightly to the right.
+       - Increase (e.g., 5vw) to move it further right.
+       - Decrease (e.g., 0vw) to move it closer to the left edge. */
+
     margin-right: auto;
-    /* Push it to the left */
+    /* Ensures it aligns to the left but allows for responsive spacing. */
 }
 
 /* Labels styling */
@@ -138,15 +156,17 @@ body {
     color: rgba(0, 255, 0, 0.8);
 }
 
-/* Updated container to align content properly */
+/* Container for the YouTube window & list */
 .youtube-content {
     display: flex;
     gap: 20px;
     height: 300px;
-    /* Reduce height to match the new size */
+    /* Controls the height of the container
+       - Increase for a taller player (e.g., 300px)
+       - Decrease for a more compact layout (e.g., 200px) */
 }
 
-/* Updated YouTube preview section */
+/* YouTube preview section */
 .youtube-preview {
     flex: 1;
     background-color: rgba(0, 0, 0, 0.5);
@@ -156,79 +176,149 @@ body {
     height: 100%;
 }
 
-/* Adjusting the YouTube player */
+/* YouTube player inside the preview */
 #youtube-player {
     width: 100%;
     height: 100%;
     border: none;
 }
 
-/* Updated YouTube list section */
+/* YouTube list section (video suggestions) */
 .youtube-list {
     flex: 1;
     overflow-y: auto;
     padding-right: 10px;
 }
 
-/* Custom scrollbar for trending lists */
-.youtube-list::-webkit-scrollbar, .trending-list::-webkit-scrollbar {
+/* ===== RESPONSIVE ADJUSTMENTS FOR SMALLER SCREENS ===== */
+@media (max-width: 1024px) {
+    .youtube-window {
+        width: 60%;
+        /* Slightly wider on medium screens (tablets) */
+        max-width: 500px;
+    }
+
+    .youtube-content {
+        height: 220px;
+        /* Adjust height for better layout on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .youtube-window {
+        width: 80%;
+        /* Make it take more space on smaller screens */
+        max-width: 450px;
+        margin-left: 5vw;
+    }
+
+    .youtube-content {
+        height: 200px;
+        /* Adjust height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .youtube-window {
+        width: 95%;
+        /* Nearly full width for mobile screens */
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        /* Center it on mobile */
+    }
+
+    .youtube-content {
+        flex-direction: column;
+        /* Stacks video & list vertically on small screens */
+        height: auto;
+    }
+
+    .youtube-preview {
+        height: 180px;
+        /* Adjust height for better mobile fit */
+    }
+}
+
+/* Custom scrollbar for YouTube list */
+.youtube-list::-webkit-scrollbar {
     width: 8px;
 }
 
-.youtube-list::-webkit-scrollbar-track, .trending-list::-webkit-scrollbar-track {
+.youtube-list::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 }
 
-.youtube-list::-webkit-scrollbar-thumb, .trending-list::-webkit-scrollbar-thumb {
+.youtube-list::-webkit-scrollbar-thumb {
     background: rgba(0, 255, 0, 0.3);
     border-radius: 10px;
 }
 
-.youtube-list::-webkit-scrollbar-thumb:hover, .trending-list::-webkit-scrollbar-thumb:hover {
+.youtube-list::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 255, 0, 0.5);
 }
 
-/* ===== PLATFORM WINDOWS ===== */
 /* Four equal-sized windows below for Google, Twitter, Facebook, and TikTok */
 /* ===== PLATFORM WINDOWS ===== */
 /* Arrange platform windows in a horizontal row */
-
 
 .platform-windows {
     display: flex;
     /* Uses flexbox to arrange containers in a row */
     flex-wrap: wrap;
-    /* Allows wrapping if the screen is too small */
-    gap: 20px;
-    /* Controls the space between each container */
+    /* Ensures wrapping instead of overflowing */
+    gap: 1vw;
+    /* Responsive gap based on screen width */
     justify-content: flex-start;
     /* Aligns the containers to the left */
-
-    margin-left: -140px;
-    /* Moves all containers 20px further to the left. 
-       Increase the negative value (-30px, -40px, etc.) to push it even more to the left.
-       Use positive values (20px, 30px, etc.) to move it to the right. */
+    margin-left: 5vw;
+    padding-left: 0;
+    /* Responsive left margin to prevent containers from disappearing off-screen */
 }
 
 /* Styles for individual containers */
 .platform-window {
     width: 20%;
-    /* Sets the width of each container to 20% of the parent container */
+    /* Sets the width to be responsive (20% of the parent width) */
+    min-width: 150px;
+    /* Prevents containers from becoming too small */
     height: 300px;
-    /* Fixed height for each container */
+    /* Fixed height */
     background-color: rgba(0, 100, 0, 0.3);
     /* Semi-transparent green background */
     border: 1px solid rgba(0, 255, 0, 0.3);
     /* Light green border */
     border-radius: 15px;
     /* Rounded corners */
-    padding: 10px;
+    padding: 5px;
     /* Space inside each container */
     backdrop-filter: blur(10px);
     /* Adds a subtle background blur */
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
     /* Adds a glowing green shadow */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1024px) {
+    .platform-window {
+        width: 30%;
+        /* Containers take up more space on smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .platform-window {
+        width: 45%;
+        /* Adjust width for tablet-sized screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .platform-window {
+        width: 90%;
+        /* Full-width containers for mobile screens */
+    }
 }
 
 
@@ -350,75 +440,6 @@ body {
     flex: 1;
 }
 
-/* ===== COUNTRY CARDS ===== */
-/* Small video cards positioned on major countries/regions of the globe */
-.country-cards {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.country-card {
-    position: absolute;
-    width: 120px;
-    height: 80px;
-    background-color: rgba(0, 0, 0, 0.6);
-    border: 2px solid rgba(0, 255, 0, 0.5);
-    border-radius: 10px;
-    overflow: hidden;
-    cursor: pointer;
-    pointer-events: auto;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Position each country card on its respective region */
-.usa-card {
-    top: 35%;
-    left: 25%;
-}
-
-.europe-card {
-    top: 30%;
-    left: 48%;
-}
-
-.asia-card {
-    top: 40%;
-    left: 70%;
-}
-
-.country-card:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
-}
-
-.country-label {
-    font-size: 14px;
-    font-weight: 500;
-    text-align: center;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-}
-
-.play-icon {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    width: 24px;
-    height: 24px;
-    background-color: rgba(0, 255, 0, 0.5);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 /* ===== MODAL STYLES ===== */
 /* Styling for popup windows */
 .modal {
@@ -488,7 +509,7 @@ body {
     backdrop-filter: blur(5px);
     position: relative;
     z-index: 10;
-    margin-top: 20px;
+    margin-top: auto;
 }
 
 .footer-links {
@@ -546,14 +567,6 @@ body {
         grid-template-columns: 1fr;
     }
     
-    .country-card {
-        width: 80px;
-        height: 60px;
-    }
-    
-    .country-label {
-        font-size: 12px;
-    }
 }
 
 @media (max-width: 480px) {
