@@ -1,0 +1,537 @@
+/* 
+ * Trending Hub - Main Stylesheet
+ * This file contains all the styling for the Trending Hub website
+ */
+
+/* ===== GLOBAL STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    color: #fff;
+    background-color: #000;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* ===== VIDEO BACKGROUND ===== */
+/* Full-screen video background that remains visible at all times */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#globe-video {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+/* ===== HEADER STYLES ===== */
+/* Transparent header with region filters */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+}
+
+.region-filters {
+    display: flex;
+    gap: 10px;
+}
+
+/* ===== FILTER BUTTONS ===== */
+/* Styling for region and platform filter buttons */
+.filter-btn {
+    padding: 8px 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: rgba(0, 255, 0, 0.2);
+    border-color: rgba(0, 255, 0, 0.6);
+}
+
+.filter-btn.active {
+    background-color: rgba(0, 255, 0, 0.3);
+    border-color: rgba(0, 255, 0, 0.8);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.platform-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    position: relative;
+    z-index: 10;
+}
+
+/* ===== CONTENT CONTAINER ===== */
+/* Main content area with platform windows */
+.content-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+}
+
+/* ===== YOUTUBE WINDOW ===== */
+/* Larger YouTube window at the top with video preview capability */
+.youtube-window {
+    background-color: rgba(0, 100, 0, 0.3);
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    border-radius: 15px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+}
+
+.platform-label {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: rgba(0, 255, 0, 0.8);
+}
+
+.youtube-content {
+    display: flex;
+    gap: 20px;
+    height: 300px;
+}
+
+.youtube-preview {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#youtube-player {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.youtube-list {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Custom scrollbar for trending lists */
+.youtube-list::-webkit-scrollbar, .trending-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.youtube-list::-webkit-scrollbar-track, .trending-list::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.youtube-list::-webkit-scrollbar-thumb, .trending-list::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 0, 0.3);
+    border-radius: 10px;
+}
+
+.youtube-list::-webkit-scrollbar-thumb:hover, .trending-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 0, 0.5);
+}
+
+/* ===== PLATFORM WINDOWS ===== */
+/* Four equal-sized windows below for Google, Twitter, Facebook, and TikTok */
+.platform-windows {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.platform-window {
+    background-color: rgba(0, 100, 0, 0.3);
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    border-radius: 15px;
+    padding: 15px;
+    height: 300px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+}
+
+.trending-list {
+    height: calc(100% - 30px);
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* ===== TRENDING ITEMS ===== */
+/* Styling for individual trending items in all platforms */
+.trending-item {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 255, 0, 0.2);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.trending-item:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-color: rgba(0, 255, 0, 0.5);
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+}
+
+.trending-item .number {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 255, 0, 0.3);
+    color: #fff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.trending-item .title {
+    font-weight: 500;
+    margin-bottom: 5px;
+    padding-left: 30px;
+}
+
+.trending-item .meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.trending-item .views, .trending-item .likes {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.trending-item .time {
+    font-style: italic;
+}
+
+/* YouTube trending items with thumbnails */
+.youtube-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.youtube-item .thumbnail {
+    width: 120px;
+    height: 68px;
+    border-radius: 5px;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.youtube-item .thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.youtube-item .thumbnail .play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.youtube-item:hover .thumbnail .play-overlay {
+    opacity: 1;
+}
+
+.youtube-item .thumbnail .play-overlay i {
+    color: #fff;
+    font-size: 24px;
+}
+
+.youtube-item .content {
+    flex: 1;
+}
+
+/* ===== COUNTRY CARDS ===== */
+/* Small video cards positioned on major countries/regions of the globe */
+.country-cards {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.country-card {
+    position: absolute;
+    width: 120px;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(0, 255, 0, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Position each country card on its respective region */
+.usa-card {
+    top: 35%;
+    left: 25%;
+}
+
+.europe-card {
+    top: 30%;
+    left: 48%;
+}
+
+.asia-card {
+    top: 40%;
+    left: 70%;
+}
+
+.africa-card {
+    top: 55%;
+    left: 52%;
+}
+
+.country-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+}
+
+.country-label {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.play-icon {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(0, 255, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== MODAL STYLES ===== */
+/* Styling for popup windows */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: rgba(0, 50, 0, 0.9);
+    border: 2px solid rgba(0, 255, 0, 0.5);
+    border-radius: 15px;
+    width: 80%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.modal-video {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    position: relative;
+}
+
+.modal-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-body {
+    padding: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* ===== FOOTER STYLES ===== */
+/* Transparent footer */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    position: relative;
+    z-index: 10;
+    margin-top: 20px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: rgba(0, 255, 0, 0.8);
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+/* Media queries for different screen sizes */
+@media (max-width: 1200px) {
+    .platform-windows {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .youtube-content {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .youtube-preview {
+        height: 300px;
+    }
+    
+    .youtube-list {
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .region-filters {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .platform-filters {
+        flex-wrap: wrap;
+    }
+    
+    .platform-windows {
+        grid-template-columns: 1fr;
+    }
+    
+    .country-card {
+        width: 80px;
+        height: 60px;
+    }
+    
+    .country-label {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .youtube-item {
+        flex-direction: column;
+    }
+    
+    .youtube-item .thumbnail {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+    
+    .platform-window {
+        height: 250px;
+    }
+}

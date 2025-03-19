@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Hub</title>
+    <!-- External CSS files -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Video Background Container -->
+    <div class="video-background">
+        <!-- Using the direct GitHub link provided by the user -->
+        <video autoplay muted loop id="globe-video">
+            <source src="https://raw.githubusercontent.com/atalayd/TrendingHub/main/docs/assets/header-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Header with Region Filters -->
+    <header class="header">
+        <div class="logo">Trending Hub</div>
+        <div class="region-filters">
+            <button class="filter-btn region-btn active" data-region="global">Global</button>
+            <button class="filter-btn region-btn" data-region="americas">Americas</button>
+            <button class="filter-btn region-btn" data-region="europe">Europe</button>
+            <button class="filter-btn region-btn" data-region="asia">Asia</button>
+            <button class="filter-btn region-btn" data-region="africa">Africa</button>
+            <button class="filter-btn region-btn" data-region="oceania">Oceania</button>
+        </div>
+    </header>
+
+    <!-- Platform Filters -->
+    <div class="platform-filters">
+        <button class="filter-btn platform-btn active" data-platform="all">All</button>
+        <button class="filter-btn platform-btn" data-platform="youtube">YouTube</button>
+        <button class="filter-btn platform-btn" data-platform="twitter">Twitter/X</button>
+        <button class="filter-btn platform-btn" data-platform="facebook">Facebook</button>
+        <button class="filter-btn platform-btn" data-platform="tiktok">TikTok</button>
+    </div>
+
+    <!-- Content Container -->
+    <div class="content-container">
+        <!-- YouTube Window - Larger window at the top -->
+        <div class="youtube-window">
+            <div class="platform-label">YouTube</div>
+            <div class="youtube-content">
+                <div class="youtube-preview">
+                    <iframe id="youtube-player" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="youtube-list" id="youtube-list">
+                    <!-- YouTube trending items will be populated here by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Platform Windows - Four equal-sized windows below -->
+        <div class="platform-windows">
+            <!-- Google Window -->
+            <div class="platform-window" id="google-window">
+                <div class="platform-label">Google</div>
+                <div class="trending-list" id="google-list">
+                    <!-- Google trending items will be populated here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Twitter Window -->
+            <div class="platform-window" id="twitter-window">
+                <div class="platform-label">Twitter/X</div>
+                <div class="trending-list" id="twitter-list">
+                    <!-- Twitter trending items will be populated here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Facebook Window -->
+            <div class="platform-window" id="facebook-window">
+                <div class="platform-label">Facebook</div>
+                <div class="trending-list" id="facebook-list">
+                    <!-- Facebook trending items will be populated here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- TikTok Window -->
+            <div class="platform-window" id="tiktok-window">
+                <div class="platform-label">TikTok</div>
+                <div class="trending-list" id="tiktok-list">
+                    <!-- TikTok trending items will be populated here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Country-specific Video Cards - Positioned on the globe -->
+    <div class="country-cards">
+        <div class="country-card usa-card" data-region="americas">
+            <div class="country-label">Americas</div>
+            <div class="play-icon"><i class="fas fa-play"></i></div>
+        </div>
+        <div class="country-card europe-card" data-region="europe">
+            <div class="country-label">Europe</div>
+            <div class="play-icon"><i class="fas fa-play"></i></div>
+        </div>
+        <div class="country-card asia-card" data-region="asia">
+            <div class="country-label">Asia</div>
+            <div class="play-icon"><i class="fas fa-play"></i></div>
+        </div>
+        <div class="country-card africa-card" data-region="africa">
+            <div class="country-label">Africa</div>
+            <div class="play-icon"><i class="fas fa-play"></i></div>
+        </div>
+    </div>
+
+    <!-- Video Modal for popup content -->
+    <div class="modal" id="video-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-video">
+                <iframe id="modal-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Modal for platform content -->
+    <div class="modal" id="content-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body" id="modal-content">
+                <!-- Content will be populated here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="copyright">© 2025 Trending Hub. All rights reserved.</div>
+        <div class="footer-links">
+            <a href="#" class="footer-link">About</a>
+            <a href="#" class="footer-link">Privacy</a>
+            <a href="#" class="footer-link">Contact</a>
+        </div>
+    </footer>
+
+    <!-- External JavaScript files -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
