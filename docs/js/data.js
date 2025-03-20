@@ -1,501 +1,242 @@
 /**
  * Trending Hub - Sample Data
  * This file contains sample trending data for all platforms and regions
+ * Used as fallback when API keys are not configured or API calls fail
  */
 
-// Sample data structure for trending content
+// Sample trending data for all regions and platforms
 const trendingData = {
-    // Data organized by region
+    // Global region
     global: {
         youtube: [
-            {
-                id: 1,
-                title: "Amazing New Technology Breakthrough",
-                views: "5.2M",
-                likes: "420K",
-                time: "2 days ago",
-                videoId: "dQw4w9WgXcQ", // Technology demo video
-                thumbnail: "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
-            },
-            {
-                id: 2,
-                title: "World's Most Spectacular Natural Wonders",
-                views: "3.8M",
-                likes: "310K",
-                time: "3 days ago",
-                videoId: "QwZT7T-TXT0", // Nature documentary clip
-                thumbnail: "https://i.ytimg.com/vi/QwZT7T-TXT0/hqdefault.jpg"
-            },
-            {
-                id: 3,
-                title: "The Future of Renewable Energy Explained",
-                views: "2.5M",
-                likes: "195K",
-                time: "1 week ago",
-                videoId: "RnvCbKjIMeI", // Renewable energy video
-                thumbnail: "https://i.ytimg.com/vi/RnvCbKjIMeI/hqdefault.jpg"
-            },
-            {
-                id: 4,
-                title: "How Artificial Intelligence is Changing Everything",
-                views: "4.1M",
-                likes: "350K",
-                time: "5 days ago",
-                videoId: "Pls_q2aQzHg", // AI documentary
-                thumbnail: "https://i.ytimg.com/vi/Pls_q2aQzHg/hqdefault.jpg"
-            },
-            {
-                id: 5,
-                title: "The Most Beautiful Places on Earth 2025",
-                views: "1.9M",
-                likes: "180K",
-                time: "2 weeks ago",
-                videoId: "74qGcpQVzUs", // Travel destinations
-                thumbnail: "https://i.ytimg.com/vi/74qGcpQVzUs/hqdefault.jpg"
-            }
-        ],
-        google: [
-            { id: 1, title: "Global Climate Summit 2025", time: "Trending today" },
-            { id: 2, title: "Cryptocurrency market surge", time: "500K+ searches" },
-            { id: 3, title: "New smartphone release date", time: "200K+ searches" },
-            { id: 4, title: "International Space Station discoveries", time: "150K+ searches" },
-            { id: 5, title: "World Cup qualifiers results", time: "1M+ searches" }
+            { id: 1, title: "SpaceX Starship Launch Highlights", videoId: "gA6ppby3JC8", thumbnail: "https://i.ytimg.com/vi/gA6ppby3JC8/mqdefault.jpg", views: "12.5M", likes: "1.2M", time: "2 days ago" },
+            { id: 2, title: "World Cup 2026 Official Trailer", videoId: "dQw4w9WgXcQ", thumbnail: "https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg", views: "8.7M", likes: "950K", time: "3 days ago" },
+            { id: 3, title: "New AI Breakthrough Explained", videoId: "jHdTve3ZpS0", thumbnail: "https://i.ytimg.com/vi/jHdTve3ZpS0/mqdefault.jpg", views: "5.3M", likes: "620K", time: "1 day ago" },
+            { id: 4, title: "The Future of Renewable Energy", videoId: "7KXGZAEWzn0", thumbnail: "https://i.ytimg.com/vi/7KXGZAEWzn0/mqdefault.jpg", views: "3.8M", likes: "410K", time: "4 days ago" },
+            { id: 5, title: "Global Music Festival 2025 - Live", videoId: "21X5lGlDOfg", thumbnail: "https://i.ytimg.com/vi/21X5lGlDOfg/mqdefault.jpg", views: "2.9M", likes: "380K", time: "12 hours ago" }
         ],
         twitter: [
-            { id: 1, title: "#GlobalWarming", time: "250K tweets" },
-            { id: 2, title: "#TechInnovation", time: "180K tweets" },
-            { id: 3, title: "#CryptoCurrency", time: "320K tweets" },
-            { id: 4, title: "#SpaceExploration", time: "95K tweets" },
-            { id: 5, title: "#WorldCup2026", time: "450K tweets" }
+            { id: 1, title: "#WorldPeaceDay", tweets: "1.2M", time: "Trending now" },
+            { id: 2, title: "#ClimateAction", tweets: "890K", time: "Trending now" },
+            { id: 3, title: "#TechInnovation", tweets: "750K", time: "Trending now" },
+            { id: 4, title: "#GlobalEconomy", tweets: "620K", time: "Trending now" },
+            { id: 5, title: "#DigitalTransformation", tweets: "580K", time: "Trending now" }
         ],
         facebook: [
-            { id: 1, title: "Virtual Reality Gaming Revolution", time: "Trending worldwide" },
-            { id: 2, title: "Sustainable Living Tips", time: "50K shares today" },
-            { id: 3, title: "Remote Work Culture", time: "30K discussions" },
-            { id: 4, title: "Digital Nomad Lifestyle", time: "25K shares today" },
-            { id: 5, title: "Global Music Festival Highlights", time: "100K talking about this" }
+            { id: 1, title: "International Space Station Live Tour", time: "Trending now" },
+            { id: 2, title: "Global Health Initiative Launch", time: "Trending now" },
+            { id: 3, title: "Virtual Reality Education Summit", time: "Trending now" },
+            { id: 4, title: "Worldwide Cultural Exchange Program", time: "Trending now" },
+            { id: 5, title: "International Cooking Championship", time: "Trending now" }
         ],
         tiktok: [
-            { id: 1, title: "#DanceChallenge2025", time: "2B views" },
-            { id: 2, title: "#EcoHacks", time: "500M views" },
-            { id: 3, title: "#FutureTech", time: "750M views" },
-            { id: 4, title: "#GlobalCooking", time: "1.2B views" },
-            { id: 5, title: "#SpaceVideos", time: "300M views" }
+            { id: 1, title: "#GlobalDanceChallenge", views: "2.3B views", time: "Trending now" },
+            { id: 2, title: "#WorldwideRecipes", views: "1.8B views", time: "Trending now" },
+            { id: 3, title: "#InternationalFashion", views: "1.5B views", time: "Trending now" },
+            { id: 4, title: "#GlobalTravelTips", views: "1.2B views", time: "Trending now" },
+            { id: 5, title: "#MulticulturalArt", views: "980M views", time: "Trending now" }
+        ],
+        google: [
+            { id: 1, title: "Global economic summit", searches: "5M+ searches", time: "Trending now" },
+            { id: 2, title: "International space mission", searches: "3.8M+ searches", time: "Trending now" },
+            { id: 3, title: "World health organization report", searches: "2.5M+ searches", time: "Trending now" },
+            { id: 4, title: "Global technology conference", searches: "2.1M+ searches", time: "Trending now" },
+            { id: 5, title: "International peace treaty", searches: "1.9M+ searches", time: "Trending now" }
         ]
     },
     
-    // Americas region data
+    // Americas region
     americas: {
         youtube: [
-            {
-                id: 1,
-                title: "North American Wildlife Documentary",
-                views: "2.3M",
-                likes: "190K",
-                time: "4 days ago",
-                videoId: "bhJNL9JUsnY", // Wildlife documentary
-                thumbnail: "https://i.ytimg.com/vi/bhJNL9JUsnY/hqdefault.jpg"
-            },
-            {
-                id: 2,
-                title: "South American Cuisine Masterclass",
-                views: "1.7M",
-                likes: "145K",
-                time: "1 week ago",
-                videoId: "5m53vUOA7lI", // Cooking video
-                thumbnail: "https://i.ytimg.com/vi/5m53vUOA7lI/hqdefault.jpg"
-            },
-            {
-                id: 3,
-                title: "The Grand Canyon: America's Natural Wonder",
-                views: "3.1M",
-                likes: "280K",
-                time: "3 days ago",
-                videoId: "SsYqX5fZZ_c", // Grand Canyon video
-                thumbnail: "https://i.ytimg.com/vi/SsYqX5fZZ_c/hqdefault.jpg"
-            },
-            {
-                id: 4,
-                title: "Amazon Rainforest Exploration",
-                views: "1.5M",
-                likes: "120K",
-                time: "2 weeks ago",
-                videoId: "JEqDkGyUF-o", // Amazon rainforest
-                thumbnail: "https://i.ytimg.com/vi/JEqDkGyUF-o/hqdefault.jpg"
-            },
-            {
-                id: 5,
-                title: "North vs South American Football Styles",
-                views: "4.2M",
-                likes: "350K",
-                time: "5 days ago",
-                videoId: "9Qtn8xTMYBE", // Football/soccer video
-                thumbnail: "https://i.ytimg.com/vi/9Qtn8xTMYBE/hqdefault.jpg"
-            }
-        ],
-        google: [
-            { id: 1, title: "Major League Baseball standings", time: "300K+ searches" },
-            { id: 2, title: "Latin American music festival", time: "150K+ searches" },
-            { id: 3, title: "Canadian national parks", time: "80K+ searches" },
-            { id: 4, title: "South American travel destinations", time: "120K+ searches" },
-            { id: 5, title: "American election polls", time: "500K+ searches" }
+            { id: 1, title: "Super Bowl Highlights 2025", videoId: "gA6ppby3JC8", thumbnail: "https://i.ytimg.com/vi/gA6ppby3JC8/mqdefault.jpg", views: "15.2M", likes: "1.8M", time: "2 days ago" },
+            { id: 2, title: "Latin Grammy Awards 2025", videoId: "dQw4w9WgXcQ", thumbnail: "https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg", views: "9.5M", likes: "1.1M", time: "3 days ago" },
+            { id: 3, title: "Amazon Rainforest Conservation", videoId: "jHdTve3ZpS0", thumbnail: "https://i.ytimg.com/vi/jHdTve3ZpS0/mqdefault.jpg", views: "6.8M", likes: "780K", time: "1 day ago" },
+            { id: 4, title: "North American Economic Summit", videoId: "7KXGZAEWzn0", thumbnail: "https://i.ytimg.com/vi/7KXGZAEWzn0/mqdefault.jpg", views: "4.2M", likes: "520K", time: "4 days ago" },
+            { id: 5, title: "Pan-American Games Highlights", videoId: "21X5lGlDOfg", thumbnail: "https://i.ytimg.com/vi/21X5lGlDOfg/mqdefault.jpg", views: "3.7M", likes: "450K", time: "12 hours ago" }
         ],
         twitter: [
-            { id: 1, title: "#AmericanPolitics", time: "180K tweets" },
-            { id: 2, title: "#LatinMusic", time: "150K tweets" },
-            { id: 3, title: "#NorthAmericanWildlife", time: "60K tweets" },
-            { id: 4, title: "#AmazonRainforest", time: "95K tweets" },
-            { id: 5, title: "#PanamericanGames", time: "120K tweets" }
+            { id: 1, title: "#AmericaUnited", tweets: "950K", time: "Trending now" },
+            { id: 2, title: "#LatinMusic", tweets: "820K", time: "Trending now" },
+            { id: 3, title: "#NorthAmericanTrade", tweets: "680K", time: "Trending now" },
+            { id: 4, title: "#SouthAmericanCuisine", tweets: "590K", time: "Trending now" },
+            { id: 5, title: "#PanamericanCulture", tweets: "510K", time: "Trending now" }
         ],
         facebook: [
-            { id: 1, title: "American Road Trip Adventures", time: "40K shares today" },
-            { id: 2, title: "South American Cultural Heritage", time: "25K discussions" },
-            { id: 3, title: "North American Indigenous Art", time: "15K shares today" },
-            { id: 4, title: "Central American Cuisine", time: "30K talking about this" },
-            { id: 5, title: "Canadian Wilderness Photography", time: "20K shares today" }
+            { id: 1, title: "American Innovation Summit", time: "Trending now" },
+            { id: 2, title: "Latin American Film Festival", time: "Trending now" },
+            { id: 3, title: "North American Wildlife Conservation", time: "Trending now" },
+            { id: 4, title: "South American Tourism Expo", time: "Trending now" },
+            { id: 5, title: "Caribbean Cultural Celebration", time: "Trending now" }
         ],
         tiktok: [
-            { id: 1, title: "#AmericanDance", time: "800M views" },
-            { id: 2, title: "#LatinCooking", time: "350M views" },
-            { id: 3, title: "#NorthAmericanTravel", time: "500M views" },
-            { id: 4, title: "#SouthAmericanFashion", time: "250M views" },
-            { id: 5, title: "#CanadianOutdoors", time: "300M views" }
+            { id: 1, title: "#AmericanDanceChallenge", views: "1.9B views", time: "Trending now" },
+            { id: 2, title: "#LatinCooking", views: "1.6B views", time: "Trending now" },
+            { id: 3, title: "#NorthAmericanRoadTrip", views: "1.3B views", time: "Trending now" },
+            { id: 4, title: "#SouthAmericanFashion", views: "1.1B views", time: "Trending now" },
+            { id: 5, title: "#CaribbeanVibes", views: "950M views", time: "Trending now" }
+        ],
+        google: [
+            { id: 1, title: "North American trade agreement", searches: "4.5M+ searches", time: "Trending now" },
+            { id: 2, title: "Latin American economic growth", searches: "3.2M+ searches", time: "Trending now" },
+            { id: 3, title: "South American tourism destinations", searches: "2.8M+ searches", time: "Trending now" },
+            { id: 4, title: "Caribbean vacation packages", searches: "2.3M+ searches", time: "Trending now" },
+            { id: 5, title: "American technology innovation", searches: "1.9M+ searches", time: "Trending now" }
         ]
     },
     
-    // Europe region data
+    // Europe region
     europe: {
         youtube: [
-            {
-                id: 1,
-                title: "European Architectural Masterpieces",
-                views: "1.9M",
-                likes: "160K",
-                time: "1 week ago",
-                videoId: "LdJkLyw4yzg", // European architecture
-                thumbnail: "https://i.ytimg.com/vi/LdJkLyw4yzg/hqdefault.jpg"
-            },
-            {
-                id: 2,
-                title: "Mediterranean Cuisine Secrets",
-                views: "2.2M",
-                likes: "185K",
-                time: "5 days ago",
-                videoId: "5m53vUOA7lI", // Mediterranean cooking
-                thumbnail: "https://i.ytimg.com/vi/5m53vUOA7lI/hqdefault.jpg"
-            },
-            {
-                id: 3,
-                title: "The Alps: Europe's Majestic Mountains",
-                views: "1.5M",
-                likes: "130K",
-                time: "2 weeks ago",
-                videoId: "UwVNF99th3U", // Alps video
-                thumbnail: "https://i.ytimg.com/vi/UwVNF99th3U/hqdefault.jpg"
-            },
-            {
-                id: 4,
-                title: "European Union Economic Forecast 2025",
-                views: "1.2M",
-                likes: "95K",
-                time: "3 days ago",
-                videoId: "9Auq9mYxFEE", // EU economics
-                thumbnail: "https://i.ytimg.com/vi/9Auq9mYxFEE/hqdefault.jpg"
-            },
-            {
-                id: 5,
-                title: "Hidden Gems of Eastern Europe",
-                views: "1.8M",
-                likes: "150K",
-                time: "1 week ago",
-                videoId: "Hhj_XgMZSAE", // Eastern Europe travel
-                thumbnail: "https://i.ytimg.com/vi/Hhj_XgMZSAE/hqdefault.jpg"
-            }
-        ],
-        google: [
-            { id: 1, title: "European football league results", time: "400K+ searches" },
-            { id: 2, title: "Mediterranean vacation packages", time: "200K+ searches" },
-            { id: 3, title: "Northern Lights forecast", time: "150K+ searches" },
-            { id: 4, title: "European Union policy changes", time: "100K+ searches" },
-            { id: 5, title: "European music festivals 2025", time: "250K+ searches" }
+            { id: 1, title: "UEFA Champions League Final", videoId: "gA6ppby3JC8", thumbnail: "https://i.ytimg.com/vi/gA6ppby3JC8/mqdefault.jpg", views: "18.5M", likes: "2.1M", time: "2 days ago" },
+            { id: 2, title: "European Union Summit 2025", videoId: "dQw4w9WgXcQ", thumbnail: "https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg", views: "7.8M", likes: "890K", time: "3 days ago" },
+            { id: 3, title: "Alpine Skiing World Championship", videoId: "jHdTve3ZpS0", thumbnail: "https://i.ytimg.com/vi/jHdTve3ZpS0/mqdefault.jpg", views: "6.2M", likes: "720K", time: "1 day ago" },
+            { id: 4, title: "European Green Deal Explained", videoId: "7KXGZAEWzn0", thumbnail: "https://i.ytimg.com/vi/7KXGZAEWzn0/mqdefault.jpg", views: "4.9M", likes: "580K", time: "4 days ago" },
+            { id: 5, title: "Eurovision Song Contest 2025", videoId: "21X5lGlDOfg", thumbnail: "https://i.ytimg.com/vi/21X5lGlDOfg/mqdefault.jpg", views: "4.1M", likes: "520K", time: "12 hours ago" }
         ],
         twitter: [
-            { id: 1, title: "#EuropeanUnion", time: "120K tweets" },
-            { id: 2, title: "#EuroLeague", time: "200K tweets" },
-            { id: 3, title: "#MediterraneanDiet", time: "80K tweets" },
-            { id: 4, title: "#EuropeanTravel", time: "150K tweets" },
-            { id: 5, title: "#NordicLifestyle", time: "60K tweets" }
+            { id: 1, title: "#EuropeanUnity", tweets: "880K", time: "Trending now" },
+            { id: 2, title: "#EurovisionFinal", tweets: "820K", time: "Trending now" },
+            { id: 3, title: "#EuropeanCuisine", tweets: "710K", time: "Trending now" },
+            { id: 4, title: "#EUPolitics", tweets: "650K", time: "Trending now" },
+            { id: 5, title: "#EuropeanTravel", tweets: "580K", time: "Trending now" }
         ],
         facebook: [
-            { id: 1, title: "European Heritage Sites", time: "35K shares today" },
-            { id: 2, title: "Mediterranean Cruise Experiences", time: "20K discussions" },
-            { id: 3, title: "European Sustainable Cities", time: "25K shares today" },
-            { id: 4, title: "Eastern European Traditions", time: "15K talking about this" },
-            { id: 5, title: "European Culinary Tour", time: "30K shares today" }
+            { id: 1, title: "European Cultural Heritage Festival", time: "Trending now" },
+            { id: 2, title: "Mediterranean Cuisine Expo", time: "Trending now" },
+            { id: 3, title: "Northern European Design Summit", time: "Trending now" },
+            { id: 4, title: "Eastern European Film Festival", time: "Trending now" },
+            { id: 5, title: "Western European Tech Conference", time: "Trending now" }
         ],
         tiktok: [
-            { id: 1, title: "#EuropeanFashion", time: "600M views" },
-            { id: 2, title: "#MediterraneanLife", time: "450M views" },
-            { id: 3, title: "#EuropeanCities", time: "700M views" },
-            { id: 4, title: "#NordicDesign", time: "300M views" },
-            { id: 5, title: "#EasternEuropeanCuisine", time: "250M views" }
+            { id: 1, title: "#EuropeanFashionWeek", views: "1.7B views", time: "Trending now" },
+            { id: 2, title: "#MediterraneanDiet", views: "1.5B views", time: "Trending now" },
+            { id: 3, title: "#EuropeanArchitecture", views: "1.2B views", time: "Trending now" },
+            { id: 4, title: "#EUTravelGuide", views: "1.0B views", time: "Trending now" },
+            { id: 5, title: "#EuropeanStreetStyle", views: "920M views", time: "Trending now" }
+        ],
+        google: [
+            { id: 1, title: "European Union policy changes", searches: "3.8M+ searches", time: "Trending now" },
+            { id: 2, title: "European travel destinations", searches: "3.5M+ searches", time: "Trending now" },
+            { id: 3, title: "European football championship", searches: "3.1M+ searches", time: "Trending now" },
+            { id: 4, title: "European economic forecast", searches: "2.6M+ searches", time: "Trending now" },
+            { id: 5, title: "European cultural festivals", searches: "2.2M+ searches", time: "Trending now" }
         ]
     },
     
-    // Asia region data
+    // Asia region
     asia: {
         youtube: [
-            {
-                id: 1,
-                title: "Asian Street Food Journey",
-                views: "3.5M",
-                likes: "290K",
-                time: "3 days ago",
-                videoId: "5m53vUOA7lI", // Asian street food
-                thumbnail: "https://i.ytimg.com/vi/5m53vUOA7lI/hqdefault.jpg"
-            },
-            {
-                id: 2,
-                title: "Mount Everest: The Ultimate Challenge",
-                views: "2.8M",
-                likes: "240K",
-                time: "1 week ago",
-                videoId: "NhBzhi9jPFs", // Everest documentary
-                thumbnail: "https://i.ytimg.com/vi/NhBzhi9jPFs/hqdefault.jpg"
-            },
-            {
-                id: 3,
-                title: "Asian Technology Innovation Leaders",
-                views: "2.1M",
-                likes: "175K",
-                time: "5 days ago",
-                videoId: "SGP6Y0Pnhe4", // Asian tech
-                thumbnail: "https://i.ytimg.com/vi/SGP6Y0Pnhe4/hqdefault.jpg"
-            },
-            {
-                id: 4,
-                title: "Traditional Asian Medicine Practices",
-                views: "1.6M",
-                likes: "130K",
-                time: "2 weeks ago",
-                videoId: "JEqDkGyUF-o", // Traditional medicine
-                thumbnail: "https://i.ytimg.com/vi/JEqDkGyUF-o/hqdefault.jpg"
-            },
-            {
-                id: 5,
-                title: "Southeast Asian Island Paradise Tour",
-                views: "2.4M",
-                likes: "200K",
-                time: "4 days ago",
-                videoId: "LdJkLyw4yzg", // Island tour
-                thumbnail: "https://i.ytimg.com/vi/LdJkLyw4yzg/hqdefault.jpg"
-            }
-        ],
-        google: [
-            { id: 1, title: "Asian economic summit", time: "250K+ searches" },
-            { id: 2, title: "K-pop new album releases", time: "500K+ searches" },
-            { id: 3, title: "Southeast Asian travel restrictions", time: "180K+ searches" },
-            { id: 4, title: "Asian cuisine cooking techniques", time: "120K+ searches" },
-            { id: 5, title: "East Asian technology innovations", time: "200K+ searches" }
+            { id: 1, title: "Asian Games 2025 Opening Ceremony", videoId: "gA6ppby3JC8", thumbnail: "https://i.ytimg.com/vi/gA6ppby3JC8/mqdefault.jpg", views: "22.7M", likes: "2.5M", time: "2 days ago" },
+            { id: 2, title: "K-Pop World Tour 2025", videoId: "dQw4w9WgXcQ", thumbnail: "https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg", views: "19.3M", likes: "2.2M", time: "3 days ago" },
+            { id: 3, title: "Asian Economic Forum Highlights", videoId: "jHdTve3ZpS0", thumbnail: "https://i.ytimg.com/vi/jHdTve3ZpS0/mqdefault.jpg", views: "8.5M", likes: "950K", time: "1 day ago" },
+            { id: 4, title: "Bollywood Awards 2025", videoId: "7KXGZAEWzn0", thumbnail: "https://i.ytimg.com/vi/7KXGZAEWzn0/mqdefault.jpg", views: "7.2M", likes: "880K", time: "4 days ago" },
+            { id: 5, title: "Asian Street Food Documentary", videoId: "21X5lGlDOfg", thumbnail: "https://i.ytimg.com/vi/21X5lGlDOfg/mqdefault.jpg", views: "5.8M", likes: "720K", time: "12 hours ago" }
         ],
         twitter: [
-            { id: 1, title: "#KPopStars", time: "350K tweets" },
-            { id: 2, title: "#AsianCuisine", time: "120K tweets" },
-            { id: 3, title: "#SoutheastAsianTravel", time: "90K tweets" },
-            { id: 4, title: "#AsianTechInnovation", time: "150K tweets" },
-            { id: 5, title: "#HimalayaAdventures", time: "70K tweets" }
+            { id: 1, title: "#KPopStans", tweets: "1.5M", time: "Trending now" },
+            { id: 2, title: "#AsianCuisine", tweets: "980K", time: "Trending now" },
+            { id: 3, title: "#BollywoodNews", tweets: "850K", time: "Trending now" },
+            { id: 4, title: "#AsianTech", tweets: "780K", time: "Trending now" },
+            { id: 5, title: "#AsianGames2025", tweets: "720K", time: "Trending now" }
         ],
         facebook: [
-            { id: 1, title: "Asian Cultural Festivals", time: "45K shares today" },
-            { id: 2, title: "Southeast Asian Beaches", time: "30K discussions" },
-            { id: 3, title: "East Asian Architecture", time: "25K shares today" },
-            { id: 4, title: "Asian Fusion Cuisine", time: "35K talking about this" },
-            { id: 5, title: "Central Asian Nomadic Traditions", time: "15K shares today" }
+            { id: 1, title: "Asian Cultural Festival", time: "Trending now" },
+            { id: 2, title: "East Asian Business Summit", time: "Trending now" },
+            { id: 3, title: "South Asian Film Awards", time: "Trending now" },
+            { id: 4, title: "Southeast Asian Cuisine Expo", time: "Trending now" },
+            { id: 5, title: "Central Asian Tourism Fair", time: "Trending now" }
         ],
         tiktok: [
-            { id: 1, title: "#AsianStreetFood", time: "900M views" },
-            { id: 2, title: "#KPopDance", time: "1.5B views" },
-            { id: 3, title: "#AsianFashionTrends", time: "700M views" },
-            { id: 4, title: "#SoutheastAsianTravel", time: "500M views" },
-            { id: 5, title: "#AsianBeautySecrets", time: "800M views" }
+            { id: 1, title: "#AsianFoodChallenge", views: "2.8B views", time: "Trending now" },
+            { id: 2, title: "#KPopDanceChallenge", views: "2.5B views", time: "Trending now" },
+            { id: 3, title: "#AsianFashionTrends", views: "1.9B views", time: "Trending now" },
+            { id: 4, title: "#BollywoodDance", views: "1.7B views", time: "Trending now" },
+            { id: 5, title: "#AsianBeautySecrets", views: "1.5B views", time: "Trending now" }
+        ],
+        google: [
+            { id: 1, title: "Asian economic growth forecast", searches: "5.2M+ searches", time: "Trending now" },
+            { id: 2, title: "K-pop concert tickets", searches: "4.8M+ searches", time: "Trending now" },
+            { id: 3, title: "Asian technology innovations", searches: "3.9M+ searches", time: "Trending now" },
+            { id: 4, title: "Bollywood movie releases", searches: "3.5M+ searches", time: "Trending now" },
+            { id: 5, title: "Asian travel destinations", searches: "3.2M+ searches", time: "Trending now" }
         ]
     },
     
-    // Africa region data
+    // Africa region
     africa: {
         youtube: [
-            {
-                id: 1,
-                title: "African Wildlife Safari Experience",
-                views: "2.7M",
-                likes: "230K",
-                time: "1 week ago",
-                videoId: "bhJNL9JUsnY", // African wildlife
-                thumbnail: "https://i.ytimg.com/vi/bhJNL9JUsnY/hqdefault.jpg"
-            },
-            {
-                id: 2,
-                title: "Traditional African Music and Dance",
-                views: "1.9M",
-                likes: "160K",
-                time: "2 weeks ago",
-                videoId: "9Auq9mYxFEE", // African music
-                thumbnail: "https://i.ytimg.com/vi/9Auq9mYxFEE/hqdefault.jpg"
-            },
-            {
-                id: 3,
-                title: "North African Cuisine Masterclass",
-                views: "1.5M",
-                likes: "125K",
-                time: "5 days ago",
-                videoId: "5m53vUOA7lI", // North African cooking
-                thumbnail: "https://i.ytimg.com/vi/5m53vUOA7lI/hqdefault.jpg"
-            },
-            {
-                id: 4,
-                title: "The Great Migration: Nature's Spectacle",
-                views: "3.2M",
-                likes: "270K",
-                time: "3 days ago",
-                videoId: "JEqDkGyUF-o", // Great Migration
-                thumbnail: "https://i.ytimg.com/vi/JEqDkGyUF-o/hqdefault.jpg"
-            },
-            {
-                id: 5,
-                title: "African Innovation and Technology Growth",
-                views: "1.3M",
-                likes: "110K",
-                time: "1 week ago",
-                videoId: "SGP6Y0Pnhe4", // African tech
-                thumbnail: "https://i.ytimg.com/vi/SGP6Y0Pnhe4/hqdefault.jpg"
-            }
-        ],
-        google: [
-            { id: 1, title: "African Cup of Nations results", time: "300K+ searches" },
-            { id: 2, title: "Safari tour packages", time: "150K+ searches" },
-            { id: 3, title: "African sustainable development", time: "100K+ searches" },
-            { id: 4, title: "West African music festival", time: "120K+ searches" },
-            { id: 5, title: "North African historical sites", time: "80K+ searches" }
+            { id: 1, title: "African Cup of Nations 2025", videoId: "gA6ppby3JC8", thumbnail: "https://i.ytimg.com/vi/gA6ppby3JC8/mqdefault.jpg", views: "12.8M", likes: "1.5M", time: "2 days ago" },
+            { id: 2, title: "African Union Summit 2025", videoId: "dQw4w9WgXcQ", thumbnail: "https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg", views: "7.5M", likes: "890K", time: "3 days ago" },
+            { id: 3, title: "African Innovation Awards", videoId: "jHdTve3ZpS0", thumbnail: "https://i.ytimg.com/vi/jHdTve3ZpS0/mqdefault.jpg", views: "5.9M", likes: "720K", time: "1 day ago" },
+            { id: 4, title: "African Wildlife Documentary", videoId: "7KXGZAEWzn0", thumbnail: "https://i.ytimg.com/vi/7KXGZAEWzn0/mqdefault.jpg", views: "4.8M", likes: "650K", time: "4 days ago" },
+            { id: 5, title: "African Music Festival 2025", videoId: "21X5lGlDOfg", thumbnail: "https://i.ytimg.com/vi/21X5lGlDOfg/mqdefault.jpg", views: "4.2M", likes: "580K", time: "12 hours ago" }
         ],
         twitter: [
-            { id: 1, title: "#AfricanWildlife", time: "100K tweets" },
-            { id: 2, title: "#AfricanCuisine", time: "70K tweets" },
-            { id: 3, title: "#AfricanInnovation", time: "90K tweets" },
-            { id: 4, title: "#SafariAdventures", time: "120K tweets" },
-            { id: 5, title: "#AfricanArtists", time: "150K tweets" }
+            { id: 1, title: "#AfricanUnity", tweets: "780K", time: "Trending now" },
+            { id: 2, title: "#AfroBeats", tweets: "720K", time: "Trending now" },
+            { id: 3, title: "#AfricanInnovation", tweets: "650K", time: "Trending now" },
+            { id: 4, title: "#AfricanCuisine", tweets: "580K", time: "Trending now" },
+            { id: 5, title: "#AfricanWildlife", tweets: "520K", time: "Trending now" }
         ],
         facebook: [
-            { id: 1, title: "African Cultural Heritage", time: "30K shares today" },
-            { id: 2, title: "East African Safari Experiences", time: "25K discussions" },
-            { id: 3, title: "North African Architecture", time: "15K shares today" },
-            { id: 4, title: "West African Cuisine", time: "20K talking about this" },
-            { id: 5, title: "Southern African Wildlife Photography", time: "35K shares today" }
+            { id: 1, title: "Pan-African Cultural Festival", time: "Trending now" },
+            { id: 2, title: "North African Business Forum", time: "Trending now" },
+            { id: 3, title: "West African Music Awards", time: "Trending now" },
+            { id: 4, title: "East African Tourism Expo", time: "Trending now" },
+            { id: 5, title: "Southern African Tech Summit", time: "Trending now" }
         ],
         tiktok: [
-            { id: 1, title: "#AfricanDance", time: "700M views" },
-            { id: 2, title: "#SafariAdventures", time: "400M views" },
-            { id: 3, title: "#AfricanFashion", time: "600M views" },
-            { id: 4, title: "#AfricanCooking", time: "350M views" },
-            { id: 5, title: "#AfricanWildlife", time: "500M views" }
+            { id: 1, title: "#AfricanDanceChallenge", views: "1.5B views", time: "Trending now" },
+            { id: 2, title: "#AfricanFashion", views: "1.3B views", time: "Trending now" },
+            { id: 3, title: "#AfricanCooking", views: "1.1B views", time: "Trending now" },
+            { id: 4, title: "#AfricanArt", views: "950M views", time: "Trending now" },
+            { id: 5, title: "#AfricanTravel", views: "820M views", time: "Trending now" }
+        ],
+        google: [
+            { id: 1, title: "African economic development", searches: "3.2M+ searches", time: "Trending now" },
+            { id: 2, title: "African music festivals", searches: "2.8M+ searches", time: "Trending now" },
+            { id: 3, title: "African wildlife safaris", searches: "2.5M+ searches", time: "Trending now" },
+            { id: 4, title: "African technology startups", searches: "2.1M+ searches", time: "Trending now" },
+            { id: 5, title: "African cultural heritage", searches: "1.9M+ searches", time: "Trending now" }
         ]
     },
     
-    // Oceania region data
+    // Oceania region
     oceania: {
         youtube: [
-            {
-                id: 1,
-                title: "Great Barrier Reef: Underwater Paradise",
-                views: "2.5M",
-                likes: "210K",
-                time: "4 days ago",
-                videoId: "LdJkLyw4yzg", // Great Barrier Reef
-                thumbnail: "https://i.ytimg.com/vi/LdJkLyw4yzg/hqdefault.jpg"
-            },
-            {
-                id: 2,
-                title: "New Zealand's Breathtaking Landscapes",
-                views: "2.2M",
-                likes: "180K",
-                time: "1 week ago",
-                videoId: "UwVNF99th3U", // New Zealand landscapes
-                thumbnail: "https://i.ytimg.com/vi/UwVNF99th3U/hqdefault.jpg"
-            },
-            {
-                id: 3,
-                title: "Australian Outback Adventure",
-                views: "1.8M",
-                likes: "150K",
-                time: "2 weeks ago",
-                videoId: "bhJNL9JUsnY", // Australian outback
-                thumbnail: "https://i.ytimg.com/vi/bhJNL9JUsnY/hqdefault.jpg"
-            },
-            {
-                id: 4,
-                title: "Pacific Island Cultural Traditions",
-                views: "1.4M",
-                likes: "120K",
-                time: "5 days ago",
-                videoId: "9Auq9mYxFEE", // Pacific traditions
-                thumbnail: "https://i.ytimg.com/vi/9Auq9mYxFEE/hqdefault.jpg"
-            },
-            {
-                id: 5,
-                title: "Surfing the Legendary Waves of Oceania",
-                views: "2.0M",
-                likes: "170K",
-                time: "3 days ago",
-                videoId: "JEqDkGyUF-o", // Surfing video
-                thumbnail: "https://i.ytimg.com/vi/JEqDkGyUF-o/hqdefault.jpg"
-            }
-        ],
-        google: [
-            { id: 1, title: "Great Barrier Reef conservation", time: "150K+ searches" },
-            { id: 2, title: "New Zealand travel packages", time: "200K+ searches" },
-            { id: 3, title: "Australian Open tennis results", time: "250K+ searches" },
-            { id: 4, title: "Pacific Island vacation deals", time: "100K+ searches" },
-            { id: 5, title: "Surfing competitions Oceania", time: "80K+ searches" }
+            { id: 1, title: "Australian Open 2025 Highlights", videoId: "gA6ppby3JC8", thumbnail: "https://i.ytimg.com/vi/gA6ppby3JC8/mqdefault.jpg", views: "9.5M", likes: "1.1M", time: "2 days ago" },
+            { id: 2, title: "Pacific Islands Forum 2025", videoId: "dQw4w9WgXcQ", thumbnail: "https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg", views: "5.8M", likes: "720K", time: "3 days ago" },
+            { id: 3, title: "Great Barrier Reef Documentary", videoId: "jHdTve3ZpS0", thumbnail: "https://i.ytimg.com/vi/jHdTve3ZpS0/mqdefault.jpg", views: "4.9M", likes: "650K", time: "1 day ago" },
+            { id: 4, title: "New Zealand Tourism Campaign", videoId: "7KXGZAEWzn0", thumbnail: "https://i.ytimg.com/vi/7KXGZAEWzn0/mqdefault.jpg", views: "4.2M", likes: "580K", time: "4 days ago" },
+            { id: 5, title: "Oceania Music Awards 2025", videoId: "21X5lGlDOfg", thumbnail: "https://i.ytimg.com/vi/21X5lGlDOfg/mqdefault.jpg", views: "3.8M", likes: "520K", time: "12 hours ago" }
         ],
         twitter: [
-            { id: 1, title: "#AustralianWildlife", time: "110K tweets" },
-            { id: 2, title: "#NewZealandScenery", time: "90K tweets" },
-            { id: 3, title: "#GreatBarrierReef", time: "130K tweets" },
-            { id: 4, title: "#PacificIslandLife", time: "70K tweets" },
-            { id: 5, title: "#OceaniaSurfing", time: "100K tweets" }
+            { id: 1, title: "#AustralianOpen", tweets: "680K", time: "Trending now" },
+            { id: 2, title: "#PacificIslands", tweets: "580K", time: "Trending now" },
+            { id: 3, title: "#AussieLife", tweets: "520K", time: "Trending now" },
+            { id: 4, title: "#KiwiPride", tweets: "480K", time: "Trending now" },
+            { id: 5, title: "#OceaniaUnited", tweets: "420K", time: "Trending now" }
         ],
         facebook: [
-            { id: 1, title: "Australian Outback Photography", time: "25K shares today" },
-            { id: 2, title: "New Zealand Adventure Tours", time: "30K discussions" },
-            { id: 3, title: "Pacific Island Cultural Festivals", time: "15K shares today" },
-            { id: 4, title: "Great Barrier Reef Conservation", time: "20K talking about this" },
-            { id: 5, title: "Oceania Marine Life", time: "35K shares today" }
+            { id: 1, title: "Australian Cultural Festival", time: "Trending now" },
+            { id: 2, title: "New Zealand Film Awards", time: "Trending now" },
+            { id: 3, title: "Pacific Islands Tourism Expo", time: "Trending now" },
+            { id: 4, title: "Oceania Business Summit", time: "Trending now" },
+            { id: 5, title: "Australian Wildlife Conservation", time: "Trending now" }
         ],
         tiktok: [
-            { id: 1, title: "#AussieLife", time: "600M views" },
-            { id: 2, title: "#KiwiAdventures", time: "400M views" },
-            { id: 3, title: "#PacificIslandDance", time: "300M views" },
-            { id: 4, title: "#AustralianBeaches", time: "500M views" },
-            { id: 5, title: "#OceaniaNature", time: "450M views" }
+            { id: 1, title: "#AussieTikTok", views: "1.2B views", time: "Trending now" },
+            { id: 2, title: "#KiwiLife", views: "980M views", time: "Trending now" },
+            { id: 3, title: "#PacificIslandDance", views: "850M views", time: "Trending now" },
+            { id: 4, title: "#AustralianOutback", views: "780M views", time: "Trending now" },
+            { id: 5, title: "#OceaniaTravel", views: "720M views", time: "Trending now" }
+        ],
+        google: [
+            { id: 1, title: "Australian Open tennis", searches: "2.8M+ searches", time: "Trending now" },
+            { id: 2, title: "New Zealand travel destinations", searches: "2.5M+ searches", time: "Trending now" },
+            { id: 3, title: "Great Barrier Reef conservation", searches: "2.1M+ searches", time: "Trending now" },
+            { id: 4, title: "Pacific Islands climate action", searches: "1.8M+ searches", time: "Trending now" },
+            { id: 5, title: "Australian wildlife protection", searches: "1.5M+ searches", time: "Trending now" }
         ]
-    }
-};
-
-// Country-specific video data for the globe markers
-const countryVideos = {
-    americas: {
-        title: "Americas Highlights",
-        videoId: "9Qtn8xTMYBE" // Americas video
-    },
-    europe: {
-        title: "European Wonders",
-        videoId: "LdJkLyw4yzg" // Europe video
-    },
-    asia: {
-        title: "Asian Discoveries",
-        videoId: "5m53vUOA7lI" // Asia video
-    },
-    africa: {
-        title: "African Adventures",
-        videoId: "bhJNL9JUsnY" // Africa video
     }
 };
